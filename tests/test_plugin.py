@@ -1,6 +1,7 @@
 """Tests for agentic-monitoring-plugin structure and specifications."""
 
 import json
+import re
 from pathlib import Path
 
 PLUGIN_ROOT = Path(__file__).resolve().parent.parent
@@ -31,12 +32,34 @@ def test_contributing_exists():
 
 def test_monitoring_agent_exists():
     agent_file = PLUGIN_ROOT / "agents" / "coding-monitor" / "agent.md"
-    if not agent_file.exists():
-        agent_file = PLUGIN_ROOT / "agents" / "monitoring" / "agent.md"
-    assert agent_file.exists(), "agent.md must exist in coding-monitor or monitoring"
+    assert agent_file.exists(), "agents/coding-monitor/agent.md must exist"
+    
+    legacy_dir = PLUGIN_ROOT / "agents" / "monitoring"
+    assert not legacy_dir.exists(), "agents/monitoring must NOT exist"
+    
     content = agent_file.read_text(encoding="utf-8")
-    assert "name: coding-monitor" in content or "coding-monitor" in content
+    assert "name: coding-monitor" in content
     assert "Telemetry Monitor" in content
+
+    # Check aliases
+    aliases = []
+    in_aliases = False
+    for line in content.splitlines():
+        if line.startswith("aliases:"):
+            in_aliases = True
+            continue
+        if in_aliases:
+            if line.startswith("  - "):
+                aliases.append(line.replace("  - ", "").strip())
+            elif line.startswith(" ") or line.startswith("\t"):
+                continue
+            else:
+                break
+
+    assert len(aliases) > 0, "At least one alias should be defined"
+    assert "monitoring" not in aliases, "Legacy alias 'monitoring' must not be present"
+    for alias in aliases:
+        assert re.match(r"^coding(-.*)?$", alias), f"Alias '{alias}' must match ^coding(-.*)?$"
 
 
 def test_central_agent_guide_exists():
@@ -48,10 +71,14 @@ def test_central_agent_guide_exists():
 
 
 def test_monitoring_skill_exists():
-    skill_file = PLUGIN_ROOT / "skills" / "monitoring" / "SKILL.md"
-    assert skill_file.exists(), "skills/monitoring/SKILL.md must exist"
+    skill_file = PLUGIN_ROOT / "skills" / "coding-monitor" / "SKILL.md"
+    assert skill_file.exists(), "skills/coding-monitor/SKILL.md must exist"
+    
+    legacy_skill_dir = PLUGIN_ROOT / "skills" / "monitoring"
+    assert not legacy_skill_dir.exists(), "skills/monitoring must NOT exist"
+    
     content = skill_file.read_text(encoding="utf-8")
-    assert "name: monitoring" in content
+    assert "name: coding-monitor" in content
     assert "Intervention Gate" in content
 
 

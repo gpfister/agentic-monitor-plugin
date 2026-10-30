@@ -1,5 +1,5 @@
 ---
-name: monitoring
+name: coding-monitor
 description: >-
   Background telemetry, application log surveillance, Docker container observation,
   and serial console monitoring with automatic error detection and interactive pause gates.
@@ -7,7 +7,7 @@ description: >-
 
 # Telemetry & Stream Monitoring (`@coding-monitor`)
 
-The `monitoring` skill provides runbooks and operational procedures for streaming continuous output sources to intercept crashes, errors, or anomalies early.
+The `coding-monitor` skill provides runbooks and operational procedures for streaming continuous output sources to intercept crashes, errors, or anomalies early.
 
 ## Capabilities
 

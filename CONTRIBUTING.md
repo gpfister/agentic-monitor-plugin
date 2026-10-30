@@ -22,10 +22,10 @@ agentic-monitoring-plugin/
 ├── CONTRIBUTING.md     # Contribution guidelines
 ├── agents/             # Subagent definitions
 │   ├── agent.md        # Central subagent & architecture specification
-│   └── monitoring/     # Telemetry surveillance worker (@monitoring)
+│   └── coding-monitor/ # Telemetry surveillance worker (@coding-monitor)
 │       └── agent.md
 ├── skills/             # Progressive-disclosure skills
-│   └── monitoring/     # Stream surveillance skill & runbooks
+│   └── coding-monitor/ # Stream surveillance skill & runbooks
 │       └── SKILL.md
 ├── rules/              # Plugin-scoped rules
 │   └── AGENTS.md
