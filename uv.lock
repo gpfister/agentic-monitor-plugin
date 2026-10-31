@@ -3,7 +3,7 @@ revision = 5
 requires-python = ">=3.11"
 
 [[package]]
-name = "agentic-monitoring-plugin"
+name = "agentic-monitor-plugin"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [

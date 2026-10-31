@@ -1,6 +1,6 @@
-# Monitoring Guidelines & Standards — agentic-monitoring-plugin
+# Monitoring Guidelines & Standards — agentic-monitor-plugin
 
-This rule set applies whenever the `agentic-monitoring-plugin` is active in an Antigravity session.
+This rule set applies whenever the `agentic-monitor-plugin` is active in an Antigravity session.
 
 ---
 

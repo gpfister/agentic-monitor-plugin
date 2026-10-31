@@ -1,4 +1,4 @@
-"""Tests for agentic-monitoring-plugin structure and specifications."""
+"""Tests for agentic-monitor-plugin structure and specifications."""
 
 import json
 import re
@@ -11,7 +11,7 @@ def test_plugin_manifest_valid():
     manifest_file = PLUGIN_ROOT / "plugin.json"
     assert manifest_file.exists(), "plugin.json must exist"
     data = json.loads(manifest_file.read_text(encoding="utf-8"))
-    assert data.get("name") == "agentic-monitoring-plugin"
+    assert data.get("name") == "agentic-monitor-plugin"
     assert data.get("license") == "MIT"
 
 
@@ -27,7 +27,7 @@ def test_contributing_exists():
     contrib_file = PLUGIN_ROOT / "CONTRIBUTING.md"
     assert contrib_file.exists(), "CONTRIBUTING.md must exist"
     content = contrib_file.read_text(encoding="utf-8")
-    assert "agentic-monitoring-plugin" in content
+    assert "agentic-monitor-plugin" in content
 
 
 def test_monitoring_agent_exists():
@@ -39,7 +39,7 @@ def test_monitoring_agent_exists():
     
     content = agent_file.read_text(encoding="utf-8")
     assert "name: coding-monitor" in content
-    assert "Telemetry Monitor" in content
+    assert "Coding - Monitor Expert" in content
 
     # Check aliases
     aliases = []
@@ -67,7 +67,7 @@ def test_central_agent_guide_exists():
     assert central_file.exists(), "agents/agent.md must exist"
     content = central_file.read_text(encoding="utf-8")
     assert "name: agent" in content or "name: monitoring-catalog" in content or "name: coding-monitoring-catalog" in content
-    assert "Monitoring Subagents" in content
+    assert "Coding - Monitoring Subagents" in content
 
 
 def test_monitoring_skill_exists():

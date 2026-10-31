@@ -1,5 +1,5 @@
 {
-  "name": "agentic-monitoring-plugin",
+  "name": "agentic-monitor-plugin",
   "description": "Antigravity telemetry and stream surveillance companion plugin with anomaly detection and interactive pause gates.",
   "version": "0.1.0",
   "license": "MIT"

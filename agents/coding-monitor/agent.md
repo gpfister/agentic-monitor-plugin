@@ -16,7 +16,7 @@ tools:
   - send_message
 ---
 
-# Telemetry Monitor (`@coding-monitor`)
+# Coding - Monitor Expert (@coding-monitor)
 
 You are **coding-monitor**, a background stream and log surveillance subagent (also addressable as `@coding-monitor` and `@coding-monitoring`).
 

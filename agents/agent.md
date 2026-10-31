@@ -1,6 +1,6 @@
 ---
 name: coding-monitoring-catalog
-description: Architecture overview and catalog for the agentic-monitoring-plugin subagents.
+description: Architecture overview and catalog for the agentic-monitor-plugin subagents.
 enable_write_tools: false
 enable_subagent_tools: false
 enable_mcp_tools: false
@@ -9,15 +9,15 @@ tools:
   - list_dir
 ---
 
-# Monitoring Subagents & Telemetry Architecture (`agents/agent.md`)
+# Coding - Monitoring Subagents & Telemetry Architecture (agents/agent.md)
 
-This document defines the subagent architecture and catalog for the **`agentic-monitoring-plugin`** (also referenced as `agentic-monitor-plugin`).
+This document defines the subagent architecture and catalog for the **`agentic-monitor-plugin`** (also referenced as `agentic-monitoring-plugin`).
 
 ---
 
 ## 1. Architectural Overview
 
-The `agentic-monitoring-plugin` provides continuous stream surveillance, log observation, and anomaly detection capabilities for Google Antigravity. By isolating monitoring into dedicated subagents, long-running processes (serial consoles, Docker containers, application logs) can be observed continuously without blocking the main conversational flow or software development pipeline.
+The `agentic-monitor-plugin` provides continuous stream surveillance, log observation, and anomaly detection capabilities for Google Antigravity. By isolating monitoring into dedicated subagents, long-running processes (serial consoles, Docker containers, application logs) can be observed continuously without blocking the main conversational flow or software development pipeline.
 
 ### Directory Structure
 ```text
@@ -33,7 +33,7 @@ agents/
 
 | Agent Handle | Directory | `enable_write_tools` | `enable_subagent_tools` | `enable_mcp_tools` | Allowed Tools | Description |
 | :--- | :--- | :---: | :---: | :---: | :--- | :--- |
-| **`@coding-monitor`** | [`agents/coding-monitor/`](file:///Users/gpfister/Development/Projects/gpfister/agentic/agentic-monitoring-plugin/agents/coding-monitor/) | `True` | `True` | `False` | `run_command`, `manage_task`, `read_file`, `list_dir`, `ask_question`, `invoke_subagent`, `send_message` | Background surveillance worker watching logs, serial consoles, and container streams with anomaly pause gates, `@coding-investigate` invocation, and `@coding-document` handoff. |
+| **`@coding-monitor`** | [`agents/coding-monitor/`](file:///Users/gpfister/Development/Projects/gpfister/agentic/agentic-monitor-plugin/agents/coding-monitor/) | `True` | `True` | `False` | `run_command`, `manage_task`, `read_file`, `list_dir`, `ask_question`, `invoke_subagent`, `send_message` | Background surveillance worker watching logs, serial consoles, and container streams with anomaly pause gates, `@coding-investigate` invocation, and `@coding-document` handoff. |
 
 ---
 
