@@ -1,4 +1,4 @@
-"""Tests for agentic-monitor-plugin structure and specifications."""
+"""Tests for agentic-task-monitoring-plugin structure and specifications."""
 
 import json
 import re
@@ -11,7 +11,7 @@ def test_plugin_manifest_valid():
     manifest_file = PLUGIN_ROOT / "plugin.json"
     assert manifest_file.exists(), "plugin.json must exist"
     data = json.loads(manifest_file.read_text(encoding="utf-8"))
-    assert data.get("name") == "agentic-monitor-plugin"
+    assert data.get("name") == "agentic-task-monitoring-plugin"
     assert data.get("license") == "MIT"
 
 
@@ -27,7 +27,7 @@ def test_contributing_exists():
     contrib_file = PLUGIN_ROOT / "CONTRIBUTING.md"
     assert contrib_file.exists(), "CONTRIBUTING.md must exist"
     content = contrib_file.read_text(encoding="utf-8")
-    assert "agentic-monitor-plugin" in content
+    assert "agentic-task-monitoring-plugin" in content
 
 
 def test_monitoring_agent_exists():

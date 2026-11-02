@@ -1,11 +1,11 @@
-# Contributing to agentic-monitor-plugin
+# Contributing to agentic-task-monitoring-plugin
 
-Thank you for contributing to **`agentic-monitor-plugin`**! This plugin provides background telemetry and stream surveillance capabilities for Google Antigravity.
+Thank you for contributing to **`agentic-task-monitoring-plugin`**! This plugin provides background telemetry and stream surveillance capabilities for Google Antigravity.
 
 ---
 
 ## 1. Core Guidelines
-- Adhere to the standards defined in [`rules/AGENTS.md`](file:///Users/gpfister/Development/Projects/gpfister/agentic/agentic-monitor-plugin/rules/AGENTS.md).
+- Adhere to the standards defined in [`rules/AGENTS.md`](file:///Users/gpfister/Development/Projects/gpfister/agentic/agentic-task-monitoring-plugin/rules/AGENTS.md).
 - Keep subagent definitions modular, declarative, and isolated in `agents/<agent>/agent.md`.
 - Skills must include valid YAML frontmatter (`name`, `description`) matching the skill directory name.
 
@@ -14,7 +14,7 @@ Thank you for contributing to **`agentic-monitor-plugin`**! This plugin provides
 ## 2. Directory Structure
 
 ```text
-agentic-monitor-plugin/
+agentic-task-monitoring-plugin/
 ├── plugin.json         # Plugin manifest
 ├── pyproject.toml      # Project metadata & test dependencies
 ├── README.md           # Documentation
