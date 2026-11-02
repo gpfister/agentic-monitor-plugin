@@ -49,9 +49,9 @@ agents/
    - Immediately pauses stream surveillance upon anomaly discovery.
    - Formulates a structured `MonitoringAlert` JSON summarizing timestamp, stream source, error excerpt, and severity.
    - **Cross-Plugin Gate**:
-     - If `agentic-investigate-plugin` is installed: asks the user via `ask_question` if they want to invoke `@coding-investigate` to investigate the issue. If the user confirms, invokes `@coding-investigate` (TypeName="coding-investigate").
-     - If `agentic-investigate-plugin` is NOT installed: presents manual inspection, restart, ignore, or abort options.
+     - If `agentic-issue-investigation-plugin` is installed: asks the user via `ask_question` if they want to invoke `@coding-investigate` to investigate the issue. If the user confirms, invokes `@coding-investigate` (TypeName="coding-investigate").
+     - If `agentic-issue-investigation-plugin` is NOT installed: presents manual inspection, restart, ignore, or abort options.
 4. **End-of-Monitoring Documentation**:
    - When monitoring terminates or completes:
-     - If `agentic-document-plugin` (or `agentic-obsidian-plugin`) is installed: invokes `@coding-document` to record monitoring session logs and telemetry in `agentic-obsidian/monitoring/`.
+     - If `agentic-project-documenting-plugin` (or `agentic-obsidian-plugin`) is installed: invokes `@coding-document` to record monitoring session logs and telemetry in `agentic-obsidian/monitoring/`.
      - If not installed: outputs the monitoring summary directly in the chat.

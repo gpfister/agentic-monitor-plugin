@@ -87,3 +87,25 @@ def test_rules_exist():
     assert rules_file.exists(), "rules/AGENTS.md must exist"
     content = rules_file.read_text(encoding="utf-8")
     assert "Monitoring Guidelines" in content
+
+
+def test_no_stale_companion_references():
+    stale_patterns = [
+        "agentic-investigate-plugin",
+        "agentic-document-plugin",
+        "agentic-research-plugin",
+        "agentic-triage-plugin",
+    ]
+    files_to_check = [
+        PLUGIN_ROOT / "README.md",
+        PLUGIN_ROOT / "rules" / "AGENTS.md",
+        PLUGIN_ROOT / "agents" / "agent.md",
+        PLUGIN_ROOT / "agents" / "coding-monitor" / "agent.md",
+        PLUGIN_ROOT / "skills" / "coding-monitor" / "SKILL.md",
+    ]
+    for file_path in files_to_check:
+        assert file_path.exists(), f"File {file_path} must exist"
+        content = file_path.read_text(encoding="utf-8")
+        for stale in stale_patterns:
+            assert stale not in content, f"Found stale reference '{stale}' in {file_path}"
+

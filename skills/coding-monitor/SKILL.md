@@ -15,11 +15,11 @@ The `coding-monitor` skill provides runbooks and operational procedures for stre
 - **Error Detection**: Detects exceptions, stack traces, panics, and custom alert conditions.
 - **Intervention Gate & Issue Investigation (@coding-investigate)**:
   - Pauses monitoring immediately when an anomaly is discovered, formulating a structured `MonitoringAlert`.
-  - If `agentic-investigate-plugin` is installed: asks the user via `ask_question` whether to invoke `@coding-investigate` to work on the discovered issue.
-  - If `agentic-investigate-plugin` is NOT installed: presents manual inspection, restart, ignore, or abort options.
+  - If `agentic-issue-investigation-plugin` is installed: asks the user via `ask_question` whether to invoke `@coding-investigate` to work on the discovered issue.
+  - If `agentic-issue-investigation-plugin` is NOT installed: presents manual inspection, restart, ignore, or abort options.
 - **Multiple Concurrent Instances**: Run separate monitors simultaneously, differentiated by target identifiers (e.g., `coding-monitor-serial`, `coding-monitor-backend`).
 - **Obsidian Archival (@coding-document)**:
-  - When `agentic-document-plugin` (or `agentic-obsidian-plugin`) is installed, invokes `@coding-document` at the end to record monitoring telemetry, stream summaries, and alert records in `agentic-obsidian/monitoring/`.
+  - When `agentic-project-documenting-plugin` (or `agentic-obsidian-plugin`) is installed, invokes `@coding-document` at the end to record monitoring telemetry, stream summaries, and alert records in `agentic-obsidian/monitoring/`.
   - If not installed, outputs the monitoring report directly in chat.
 
 ## Triggering Monitoring

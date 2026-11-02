@@ -33,7 +33,7 @@ When an error, exception, or stream anomaly is detected:
 1. Immediately pause surveillance to prevent log cascades.
 2. Formulate a structured `MonitoringAlert` capturing timestamp, stream source, error excerpt, and stack trace.
 3. **Investigation Gate**:
-   - **If `agentic-investigate-plugin` is installed**:
+   - **If `agentic-issue-investigation-plugin` is installed**:
      For each issue discovered, ask the user via `ask_question` if they want to invoke `@coding-investigate` to work on it:
      ```python
      ask_question(
@@ -59,12 +59,12 @@ When an error, exception, or stream anomaly is detected:
        )
        ```
      - If another option is selected, follow the user's directive.
-   - **If `agentic-investigate-plugin` is NOT installed**:
+   - **If `agentic-issue-investigation-plugin` is NOT installed**:
      Present standard intervention choices (manual inspection, restart, ignore, abort) without the option to invoke `@coding-investigate`.
 
 ## End-of-Monitoring Documentation Archival (@coding-document)
 - When monitoring concludes, stops, or is aborted:
-  - **If `agentic-document-plugin` (or `agentic-obsidian-plugin`) is installed**:
+  - **If `agentic-project-documenting-plugin` (or `agentic-obsidian-plugin`) is installed**:
     Invoke `@coding-document` to document the monitoring session, telemetry summary, observed stream anomalies, and alerts in the Obsidian vault:
     ```python
     invoke_subagent(
