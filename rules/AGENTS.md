@@ -10,12 +10,22 @@ This rule set applies whenever the `agentic-task-monitoring-plugin` is active in
 
 ---
 
-## 2. Interactive Pause Gate & Investigation Protocol
+## 2. Interactive Pause Gate & Question Relay Protocol
 - When an anomaly or error is detected:
   1. Halt surveillance immediately to prevent log cascading.
   2. Synthesize an actionable `MonitoringAlert` capturing the root error, timestamp, stream source, and stack trace.
-  3. Prompt the user via `ask_question`:
-     - If `agentic-issue-investigation-plugin` is installed: ask the user if they want to invoke `@coding-investigate` to investigate the root cause. If confirmed, invoke `@coding-investigate`.
+  3. **Dual-Mode Intervention Gate (Question Relay Protocol)**:
+     - **Subagent Mode**: When running as a background subagent with a parent orchestrator (caller context present), do NOT call `ask_question` directly. Relay anomaly alert choices to the parent orchestrator via `send_message`:
+       ```text
+       [QUESTION_RELAY_REQUEST]
+       Question: <Question text>
+       Options: <List of choices>
+       Context: <Anomaly details, stream source, and alert summary>
+       ```
+       Await `[QUESTION_RELAY_RESPONSE]\nAnswer: ...` from the parent orchestrator to decide whether to spawn `@coding-investigate`, restart, continue, or abort.
+     - **Standalone Fallback Mode**: When executed directly as a top-level session without a caller orchestrator, prompt the user directly via `ask_question`.
+  4. **Investigation Plugin Support**:
+     - If `agentic-issue-investigation-plugin` is installed: offer the choice to invoke `@coding-investigate` to investigate the root cause. If confirmed, invoke `@coding-investigate`.
      - If `agentic-issue-investigation-plugin` is NOT installed: present manual inspection, restart, ignore, or abort choices without offering `@coding-investigate`.
 
 ---

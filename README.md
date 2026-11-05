@@ -8,7 +8,7 @@ Telemetry, stream surveillance, and log monitoring companion plugin for [Google 
 ## Features
 - **Declarative Subagent (`@coding-monitor`)**: Background streaming worker defined in [`agents/coding-monitor/agent.md`](file:///Users/gpfister/Development/Projects/gpfister/agentic/agentic-task-monitoring-plugin/agents/coding-monitor/agent.md) (aliases: `@coding-monitoring`).
 - **Progressive Skill (`coding-monitor`)**: Surveillance runbook and trigger instructions in [`skills/coding-monitor/SKILL.md`](file:///Users/gpfister/Development/Projects/gpfister/agentic/agentic-task-monitoring-plugin/skills/coding-monitor/SKILL.md).
-- **Interactive Anomaly Gate & Investigation (@coding-investigate)**: Immediately halts log cascading; if `agentic-issue-investigation-plugin` is installed, asks user via `ask_question` whether to invoke `@coding-investigate`.
+- **Interactive Anomaly Gate & Question Relay Protocol (@coding-investigate)**: Immediately halts log cascading; supports dual-mode intervention (Question Relay Protocol via `[QUESTION_RELAY_REQUEST]` / `[QUESTION_RELAY_RESPONSE]` when running as a subagent, or `ask_question` when standalone). If `agentic-issue-investigation-plugin` is installed, offers invocation of `@coding-investigate`.
 - **End-of-Monitoring Vault Archival (@coding-document)**: If `agentic-project-documenting-plugin` (or `agentic-obsidian-plugin`) is installed, documents telemetry and alerts in the Obsidian vault.
 - **Rules (`rules/AGENTS.md`)**: Enforces safe log streaming, bounded buffers, and clean formatting.
 
